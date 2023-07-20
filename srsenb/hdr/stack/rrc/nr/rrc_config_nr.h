@@ -27,6 +27,8 @@
 #include "srsran/interfaces/gnb_rrc_nr_interfaces.h"
 #include "srsue/hdr/phy/phy_common.h"
 
+#include <cstdint>
+
 namespace srsenb {
 
 // TODO: Make this common to NR and LTE
