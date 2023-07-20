@@ -683,7 +683,7 @@ static void MAKE_FUNC(beta)(MAKE_TYPE* s, llr_t* input, llr_t* app, llr_t* parit
 /* Computes alpha metrics */
 static void MAKE_FUNC(alpha)(MAKE_TYPE* s, llr_t* input, llr_t* app, llr_t* parity, llr_t* output, uint32_t long_cb)
 {
-  simd_type_t m_b[8], new[8], old[8], max1[8], max0[8];
+  simd_type_t m_b[8], new[8], old[8] = {0}, max1[8], max0[8];
   simd_type_t x, y, xy, ap;
   simd_type_t m1, m0;
 
@@ -979,7 +979,7 @@ void MAKE_FUNC(decision_byte)(llr_t* app1, uint8_t* output, uint32_t long_cb)
   int16x8_t ap;
 #else
   __m128i zeros = _mm_setzero_si128();
-  __m128i ap;
+  __m128i ap = _mm_setzero_si128();
 #endif
   if ((long_cb % (nof_blocks * 8)) == 0) {
     decide_for(8);

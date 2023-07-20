@@ -133,7 +133,7 @@ private:
   class sdu_buffer
   {
     static const uint8_t mac_ce_payload_len = 8 + 1;         // Long BSR has max. 9 octets (see sizeof_ce() too)
-    std::array<uint8_t, mac_ce_payload_len> ce_write_buffer; // Buffer for CE payload
+    std::array<uint8_t, mac_ce_payload_len> ce_write_buffer = {}; // Buffer for CE payload
     uint8_t*                                sdu = nullptr;
 
   public:
