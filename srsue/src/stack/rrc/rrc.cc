@@ -2243,7 +2243,8 @@ void rrc::log_rr_config_common()
               current_mac_cfg.rach_cfg.responseWindowSize,
               current_mac_cfg.rach_cfg.contentionResolutionTimer);
 
-  const srsran::phy_cfg_t& current_pcell = phy_ctrl->current_cell_config()[0];
+  auto current_cell_config = phy_ctrl->current_cell_config();
+  const srsran::phy_cfg_t& current_pcell = current_cell_config[0];
   logger.info("Set PUSCH ConfigCommon: P0_pusch=%f, DMRS cs=%d, delta_ss=%d, N_sb=%d",
               current_pcell.ul_cfg.power_ctrl.p0_ue_pusch,
               current_pcell.ul_cfg.dmrs.cyclic_shift,
