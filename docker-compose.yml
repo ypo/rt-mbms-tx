@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+  rt-mbms-tx:
+    container_name: rt-mbms-tx
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    image: rt-mbms-tx:latest
+    network_mode: "host"
+    privileged: true
+    
